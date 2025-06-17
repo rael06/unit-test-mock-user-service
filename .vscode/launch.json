@@ -4,6 +4,7 @@
     {
       "name": "Start app",
       "request": "launch",
+      "preLaunchTask": "npm: build",
       "runtimeArgs": ["run-script", "start"],
       "runtimeExecutable": "npm",
       "skipFiles": ["<node_internals>/**"],
@@ -21,30 +22,38 @@
       "sourceMaps": true,
       "console": "integratedTerminal"
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Jest All",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Jest Current File",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
-    },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "Jest All",
+    //   "program": "${workspaceFolder}/node_modules/.bin/jest",
+    //   "args": ["--runInBand"],
+    //   "console": "integratedTerminal",
+    //   "internalConsoleOptions": "neverOpen"
+    // },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "Jest Current File",
+    //   "program": "${workspaceFolder}/node_modules/.bin/jest",
+    //   "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
+    //   "console": "integratedTerminal",
+    //   "internalConsoleOptions": "neverOpen"
+    // },
     {
       "name": "Debug Jest Tests",
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
       "args": ["--runInBand"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug Jest Current File",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
       "console": "integratedTerminal"
     }
   ]
